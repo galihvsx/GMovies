@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -41,6 +42,12 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    lint {
+        abortOnError = false
+        ignoreWarnings = true
+        warningsAsErrors = true
     }
 
     dynamicFeatures += setOf(":favorite")

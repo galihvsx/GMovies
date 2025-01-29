@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this, backCallback)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, backCallback)
 
         setupAppBar()
 
