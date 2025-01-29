@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image">image</string>
+    <string name="dummyScore">50%</string>
+    <string name="none">none</string>
+    <string name="baseUrlImage">http://image.tmdb.org/t/p/w500%s</string>
+</resources>

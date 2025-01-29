@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16.dp"
+    android:gravity="center_vertical"
+    android:paddingTop="8dp">
+
+    <FrameLayout
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        >
+
+    <ImageView
+        android:id="@+id/mvPoster"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/baseline_error_24"
+        android:contentDescription="@string/none"
+        />
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:id="@+id/mvProgress"
+            />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        >
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Movie Title"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="?attr/colorOnSurface"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2024"
+            android:textSize="14sp"
+            android:textColor="?attr/colorOnSurface"
+            />
+    </LinearLayout>
+
+</LinearLayout>

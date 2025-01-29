@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.movie_detail.MovieDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Movie Detail"
+            app:titleCollapseMode="fade">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_collapseMode="parallax">
+
+
+                <ImageView
+                    android:id="@+id/posterHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/poster_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_launcher_background" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/moviePoster"
+                        android:layout_width="100dp"
+                        android:layout_height="160dp"
+                        android:contentDescription="@string/none"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/RoundedCorners"
+                        tools:src="@drawable/ic_launcher_background" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/movieTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:text="Movie Title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/movieRelease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:text="2023" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="?android:attr/buttonBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp">
+
+                    <Button
+                        android:id="@+id/favBtn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/baseline_favorite_border_24"
+                        android:drawableTint="@color/white"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/white"
+                        android:text="@string/add_to_favorite"
+                        android:backgroundTint="#A22727"
+                        android:layout_marginRight="4dp"
+                        tools:ignore="ButtonStyle,RtlHardcoded,VisualLintButtonSize" />
+
+                    <Button
+                        android:id="@+id/shareBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/baseline_share_24"
+                        android:drawableTint="@color/white"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/white"
+                        android:text="Share"
+                        android:backgroundTint="#2D2A2A"
+                        tools:ignore="ButtonStyle,HardcodedText,RtlHardcoded,VisualLintButtonSize" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    />
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:dividerColor="#636060"
+                    />
+
+                <TextView
+                    android:id="@+id/movieOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="Lorem Ipsum Dolor Sit Amet"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_info"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    />
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:dividerColor="#636060"
+                    />
+
+                <TextView
+                    android:id="@+id/movieLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="Lorem Ipsum Dolor Sit Amet"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/movieScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="Lorem Ipsum Dolor Sit Amet"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/moviePopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="Lorem Ipsum Dolor Sit Amet"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

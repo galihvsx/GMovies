@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GMovies</string>
+    <string name="title_favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="searchbar_hint">Search Movies</string>
+    <string name="poster_image">poster_image</string>
+    <string name="add_to_favorite">Favorite</string>
+    <string name="overview">Overview</string>
+    <string name="more_info">More Info</string>
+</resources>

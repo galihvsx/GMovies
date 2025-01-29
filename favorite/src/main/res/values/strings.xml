@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_favorite">Favorite</string>
+    <string name="notfound">notfound</string>
+    <string name="not_found">Favorite Movie Will Displayed Here</string>
+</resources>
