@@ -27,8 +27,8 @@
 -keep class * implements com.google.gson.JsonDeserializer
 
 # Prevent R8 from leaving Data object members always null
--keepclassmembers,allowobfuscation class * {
-@com.google.gson.annotations.SerializedName <fields>;
+-keep class * {
+  @com.google.gson.annotations.SerializedName <fields>;
 }
 
 ##---------------Begin: proguard configuration for Retrofit ----------
@@ -77,3 +77,15 @@ public *;
 -keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
 *** rewind();
 }
+
+-dontwarn com.gtools.gmovies.core.data.Resource$Error
+-dontwarn com.gtools.gmovies.core.data.Resource$Loading
+-dontwarn com.gtools.gmovies.core.data.Resource$Success
+-dontwarn com.gtools.gmovies.core.data.Resource
+-dontwarn com.gtools.gmovies.core.databinding.ItemCardListBinding
+-dontwarn com.gtools.gmovies.core.domain.model.Movie
+-dontwarn com.gtools.gmovies.core.domain.usecase.MovieInteractor
+-dontwarn com.gtools.gmovies.core.domain.usecase.MovieUseCase
+-dontwarn com.gtools.gmovies.core.ui.MoviesAdapter
+-dontwarn com.gtools.gmovies.core.ui.SearchResultAdapter
+-dontwarn com.gtools.gmovies.core.utils.DiffUtils

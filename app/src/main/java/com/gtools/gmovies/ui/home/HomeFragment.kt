@@ -147,7 +147,8 @@ class HomeFragment : Fragment() {
             }
             is Resource.Error -> {
                 binding.progressBar.visibility = View.GONE
-                Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                Log.e("MoviesObserver", "Error: ${movies.data}")
+                Toast.makeText(context, "Terjadi kesalahan: ${movies.data}", Toast.LENGTH_SHORT).show()
             }
         }
     }

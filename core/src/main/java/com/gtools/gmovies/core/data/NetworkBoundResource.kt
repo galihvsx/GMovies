@@ -1,5 +1,8 @@
+@file:Suppress("EmptyMethod")
+
 package com.gtools.gmovies.core.data
 
+import android.util.Log
 import com.gtools.gmovies.core.data.source.remote.ApiResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
@@ -16,34 +19,27 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             emit(Resource.Loading())
             when (val apiResponse = createCall().first()) {
                 is ApiResponse.Success -> {
+                    Log.d("NetworkBoundResource", "API Success: ${apiResponse.data}")
                     saveCallResult(apiResponse.data)
                     emitAll(loadFromDB().map {
-                        Resource.Success(
-                            it
-                        )
+                        Resource.Success(it)
                     })
                 }
                 is ApiResponse.Empty -> {
+                    Log.d("NetworkBoundResource", "API Empty")
                     emitAll(loadFromDB().map {
-                        Resource.Success(
-                            it
-                        )
+                        Resource.Success(it)
                     })
                 }
                 is ApiResponse.Error -> {
+                    Log.e("NetworkBoundResource", "API Error: ${apiResponse.errorMessage}")
                     onFetchFailed()
-                    emit(
-                        Resource.Error<ResultType>(
-                            apiResponse.errorMessage
-                        )
-                    )
+                    emit(Resource.Error<ResultType>())
                 }
             }
         } else {
             emitAll(loadFromDB().map {
-                Resource.Success(
-                    it
-                )
+                Resource.Success(it)
             })
         }
     }

@@ -10,7 +10,7 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     private val apiKey = "b8aff82aa170db5dacb32ecfdddf93e5"
 
-    suspend fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> {
+    fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
                 val response = apiService.getMovies(apiKey)

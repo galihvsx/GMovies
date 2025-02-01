@@ -1,5 +1,8 @@
+
+
 package com.gtools.gmovies.core.data.repository
 
+import android.util.Log
 import com.gtools.gmovies.core.data.NetworkBoundResource
 import com.gtools.gmovies.core.data.Resource
 import com.gtools.gmovies.core.data.source.local.LocalDataSource
@@ -22,7 +25,9 @@ class MovieRepository(
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovies(sort).map {
-                    DataMapper.mapEntitiesToDomain(it)
+                    val movies = DataMapper.mapEntitiesToDomain(it)
+                    Log.d("MovieRepository", "Loaded from DB: $movies")
+                    movies
                 }
             }
 
@@ -36,24 +41,31 @@ class MovieRepository(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
+                Log.d("MovieRepository", "Saving to DB: $movieList")
                 localDataSource.insertMovies(movieList)
             }
         }.asFlow()
 
     override fun getSearchMovies(search: String): Flow<List<Movie>> {
         return localDataSource.getMovieSearch(search).map {
-            DataMapper.mapEntitiesToDomain(it)
+            val movies = DataMapper.mapEntitiesToDomain(it)
+            Log.d("MovieRepository", "Search results: $movies")
+            movies
         }
     }
 
     override fun getFavoriteMovies(sort: String): Flow<List<Movie>> {
         return localDataSource.getAllFavoriteMovies(sort).map {
-            DataMapper.mapEntitiesToDomain(it)
+            val movies = DataMapper.mapEntitiesToDomain(it)
+            Log.d("MovieRepository", "Favorite movies: $movies")
+            movies
         }
     }
 
     override fun setMovieFavorite(movie: Movie, state: Boolean) {
         val movieEntity = DataMapper.mapDomainToEntity(movie)
-        appExecutors.diskIO().execute { localDataSource.setMovieFavorite(movieEntity, state) }
+        appExecutors.diskIO().execute {
+            localDataSource.setMovieFavorite(movieEntity, state)
+        }
     }
 }

@@ -1,4 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.gtools.gmovies.ui.home.HomeFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="com.gtools.gmovies.ui.movie_detail.MovieDetailActivity viewModel$delegate" />
+      <entry_point TYPE="method" FQNAME="com.gtools.gmovies.core.data.repository.MovieRepository$-1 java.lang.Object createCall(kotlin.coroutines.Continuation&lt;? super kotlinx.coroutines.flow.Flow&lt;? extends com.gtools.gmovies.core.data.source.remote.ApiResponse&lt;? extends java.util.List&lt;com.gtools.gmovies.core.data.source.remote.response.MovieResponse&gt;&gt;&gt;&gt; $completion)" />
+      <entry_point TYPE="method" FQNAME="com.gtools.gmovies.core.data.repository.MovieRepository$-1 java.lang.Object saveCallResult(java.util.List&lt;com.gtools.gmovies.core.data.source.remote.response.MovieResponse&gt; data, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+      <entry_point TYPE="method" FQNAME="com.gtools.gmovies.core.data.repository.MovieRepository$-1 boolean shouldFetch(java.util.List&lt;com.gtools.gmovies.core.domain.model.Movie&gt; data)" />
+    </entry_points>
+    <pattern value="com.gtools.gmovies.core.data.source.remote.response.ListMovieResponse" method="ListMovieResponse" />
+    <pattern value="com.gtools.gmovies.ui.movie_detail.MovieDetailActivity" />
+    <pattern value="com.gtools.gmovies.core.data.source.remote.response.ListMovieResponse" />
+    <pattern value="com.gtools.gmovies.ui.home.HomeFragment" />
+    <pattern value="com.gtools.gmovies.core.data.repository.MovieRepository" method="getAllMovies" />
+    <pattern value="com.gtools.gmovies.core.data.repository.MovieRepository" />
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
